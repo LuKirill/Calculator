@@ -1,30 +1,31 @@
 # Создать калькулятор для работы с рациональными и комплексными числами,
 # организовать меню, добавив в неё систему логирования.
-import draw_board, div, mult, diff, sum, repeat_calc
+
+import draw_board, repeat_calc, integer, calc_fraction, my_ui
+
+
 def simple_calc():
-    draw_board.draw_board(draw_board.board)
+    draw_board.draw_board()
     while True:
-        num1 = float(input("x: "))
-        act_list = ['-', '+', '*', '/']
-        act = input()
-        if act not in act_list:
-            print("Выберите знак: '+', '-', '*', '/'")
-        num2 = float(input("y: "))
-        if act == "+":
-            print(sum.sum(num1, num2))
-        elif act == "-":
-            print(diff.diff(num1, num2))
-        elif act == "*":
-            print(mult.mult(num1, num2))
-        elif act == "/":
-            if num2 == 0:
-                print("∞")
-            elif num2 == 0 and num1 == 0:
-                print("nan")
+        write_line("Выберите числовое множество для ввода: целое число 'I', рациональное 'R' или комплексное 'C'")
+        set_sel = input("> ")
+        if set_sel == "I":
+            integer.integer()
+        elif set_sel == "R":
+            calc_fraction.calc_fraction()
+        elif set_sel == "C":
+            complex_num.complex_num()
+        else:
+            write_line("Жмакай 'I' или 'R' или 'C'")
+        while True:
+            f = input('ещё раз?\n')
+            if f == 'y':
+                simple_calc()
+            elif f == 'n':
+                write_line("Chao!")
+                exit()
             else:
-                print(div.div(num1, num2))
-        break
-    repeat_calc.repeat()
+                write_line("Выберите "'y'" или "'n'"")
 
 
 simple_calc()

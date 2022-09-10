@@ -4,7 +4,7 @@ def repeat():
         if f == 'y':
             simple_calc()
         elif f == 'n':
-            print("Chao!")
+            write_line("Chao!")
             exit()
         else:
-            print("Выберите "'y'" или "'n'"")
+            write_line("Выберите "'y'" или "'n'"")
