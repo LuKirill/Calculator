@@ -7,7 +7,7 @@ import draw_board, repeat_calc, integer, calc_fraction, my_ui
 def simple_calc():
     draw_board.draw_board()
     while True:
-        write_line("Выберите числовое множество для ввода: целое число 'I', рациональное 'R' или комплексное 'C'")
+        my_ui.write_line("Выберите числовое множество для ввода: целое число 'I', рациональное 'R' или комплексное 'C'")
         set_sel = input("> ")
         if set_sel == "I":
             integer.integer()
@@ -16,16 +16,16 @@ def simple_calc():
         elif set_sel == "C":
             complex_num.complex_num()
         else:
-            write_line("Жмакай 'I' или 'R' или 'C'")
+            my_ui.write_line("Жмакай 'I' или 'R' или 'C'")
         while True:
             f = input('ещё раз?\n')
             if f == 'y':
                 simple_calc()
             elif f == 'n':
-                write_line("Chao!")
+                my_ui.write_line("Chao!")
                 exit()
             else:
-                write_line("Выберите "'y'" или "'n'"")
+                my_ui.write_line("Выберите "'y'" или "'n'"")
 
 
 simple_calc()
