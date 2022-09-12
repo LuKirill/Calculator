@@ -1,24 +1,18 @@
-import div, mult, diff, sum, my_ui
+from calculations import div, mult, diff, sum
+from my_ui import write_line
 
 
-def integer():
-    my_ui.write_line("Приступим к вычислению челых чисел!")
-    num1 = int(input("x: "))
-    act_list = ['-', '+', '*', '/']
-    act = input("Выберите знак: '+', '-', '*', '/': ")
-    if act not in act_list:
-        my_ui.write_line("Выберите знак: '+', '-', '*', '/'")
-    num2 = float(input("y: "))
+def integer(act, num1, num2):
     if act == "+":
-        my_ui.write_line(sum.sum(num1, num2))
+        write_line(sum(num1, num2))
     elif act == "-":
-        my_ui.write_line(diff.diff(num1, num2))
+        write_line(diff(num1, num2))
     elif act == "*":
-        my_ui.write_line(mult.mult(num1, num2))
+        write_line(mult(num1, num2))
     elif act == "/":
         if num2 == 0:
-            my_ui.write_line("∞")
+            write_line("∞")
         elif num2 == 0 and num1 == 0:
-            my_ui.write_line("nan")
+            write_line("nan")
         else:
-            my_ui.write_line(div.div(num1, num2))
+            write_line(div(num1, num2))

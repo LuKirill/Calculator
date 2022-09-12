@@ -1,19 +1,14 @@
-import div, mult, diff, sum
-import fraction_1, fraction_2
-import my_ui
+from calculations import div, mult, diff, sum
+from my_ui import write_line
+from fractions import Fraction
 
 
-def calc_fraction():
-    my_ui.write_line("Приступим к вычислению рациональных чисел!")
-    act_list = ['-', '+', '*', '/']
-    act = input("Выберите знак: '+', '-', '*', '/': ")
-    if act not in act_list:
-        my_ui.write_line("Выберите знак: '+', '-', '*', '/'")
+def calc_fraction(act, a, b, c, d):
     if act == "+":
-        my_ui.write_line(sum.sum(fraction_1.fraction_1(), fraction_2.fraction_2()))
+        write_line(sum(Fraction(a, b), Fraction(c, d)))
     elif act == "-":
-        my_ui.write_line(diff.diff(fraction_1.fraction_1(), fraction_2.fraction_2()))
+        write_line(diff(Fraction(a, b), Fraction(c, d)))
     elif act == "*":
-        my_ui.write_line(mult.mult(fraction_1.fraction_1(), fraction_2.fraction_2()))
+        write_line(mult(Fraction(a, b), Fraction(c, d)))
     elif act == "/":
-        my_ui.write_line(div.div(fraction_1.fraction_1(), fraction_2.fraction_2()))
+        write_line(div(Fraction(a, b), Fraction(c, d)))
